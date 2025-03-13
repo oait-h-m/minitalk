@@ -19,7 +19,6 @@ void	handler_sig(int sig, siginfo_t *info, void *other)
 	static int	client_pid;
 
 	(void)other;
-	(void)info;
 	if (client_pid != info->si_pid)
 	{
 		client_pid = info->si_pid;
