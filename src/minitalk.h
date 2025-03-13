@@ -16,6 +16,8 @@
 # include <signal.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+
 
 void	ft_putstr(char *s);
 void	ft_putnbr(int nb);
