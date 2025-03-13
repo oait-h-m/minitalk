@@ -13,8 +13,8 @@
 NAME_SERVER = server 
 NAME_CLIENT = client
 
-SERVER_BONUS = bonus_server 
-CLIENT_BONUS = bonus_client
+SERVER_BONUS = server_bonus
+CLIENT_BONUS = client_bonus
 
 CC = cc
 FLAGS = -Wall -Wextra -Werror
@@ -50,7 +50,7 @@ $(SERVER_BONUS): $(OBJ_B_SER)
 $(CLIENT_BONUS): $(OBJ_B_CLI)
 	$(CC) $(FLAGS) $(OBJ_B_CLI) -o $(CLIENT_BONUS)
 
-%.o: %.c
+%.o: %.c $(HEADERS)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
@@ -59,4 +59,8 @@ clean:
 fclean: clean
 	$(RM) $(NAME_SERVER) $(NAME_CLIENT) $(SERVER_BONUS) $(CLIENT_BONUS)
 
-re: all fclean
+re: fclean all bonus
+
+.PHONY: all bonus clean fclean re
+
+.SECONDARY:
