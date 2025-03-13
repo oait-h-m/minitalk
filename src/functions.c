@@ -48,8 +48,8 @@ void	ft_putnbr(int nb)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	result;
+	int		i;
+	long	result;
 
 	result = 0;
 	i = 0;
@@ -59,6 +59,8 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	if (str[i] != '\0')
+		return (-1);
+	if (result > INT_MAX || result < INT_MIN)
 		return (-1);
 	return (result);
 }
