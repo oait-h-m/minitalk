@@ -50,7 +50,7 @@ $(SERVER_BONUS): $(OBJ_B_SER)
 $(CLIENT_BONUS): $(OBJ_B_CLI)
 	$(CC) $(FLAGS) $(OBJ_B_CLI) -o $(CLIENT_BONUS)
 
-%.o: %.c $(HEADERS)
+%.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
